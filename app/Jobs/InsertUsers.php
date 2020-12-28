@@ -46,8 +46,8 @@ class InsertUsers implements ShouldQueue
                 'first_name' => "First Name 01",
                 'last_name' => "Last Name 01",
                 'email' => sprintf('testmail%s@test.com', ($t + $i)),
-                'age' => 33,
-                'group_id' => 800,
+                'age' => $i + 1,
+                'group_id' => 200,
                 'created_at' => $date,    
                 'updated_at' => $date, 
             ]);
@@ -60,8 +60,8 @@ class InsertUsers implements ShouldQueue
             // \DB::table('users')->insertGetId([
             //     'first_name' => "First Name 01",
             //     'last_name' => "Last Name 01",
-            //     'email' => sprintf('testmail%s@test.com', $age),
-            //     'age' => $age,
+            //     'email' => sprintf('testmail%s@test.com', ($t + $i)),
+            //     'age' => $i + 1,
             //     'created_at' => $date,    
             //     'updated_at' => $date,    
             // ]);

@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration
             $table->integer('group_id')->unsigned()->index();
             $table->foreign( 'group_id' )->references( 'id' )->on( 'groups' );
             $table->timestamps();
+            $table->softDeletes();
+            $table->index(['deleted_at']);
         });
     }
 

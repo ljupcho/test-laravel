@@ -8,6 +8,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use App\Models\User;
+use App\Models\Group;
 
 class InsertUsers implements ShouldQueue
 {
@@ -40,6 +41,8 @@ class InsertUsers implements ShouldQueue
         \Log::error("started time:". $startTime);
         $t = $this->offset * $this->chunk;
 
+        $group = Group::findOrFail(200);
+
         for ($i = 0; $i < $this->chunk; $i++) {
             $date = date('Y-m-d H:i:s'); 
             $user = User::create([
@@ -47,7 +50,7 @@ class InsertUsers implements ShouldQueue
                 'last_name' => "Last Name 01",
                 'email' => sprintf('testmail%s@test.com', ($t + $i)),
                 'age' => $i + 1,
-                'group_id' => 200,
+                'group_id' => $group->id,
                 'created_at' => $date,    
                 'updated_at' => $date, 
             ]);

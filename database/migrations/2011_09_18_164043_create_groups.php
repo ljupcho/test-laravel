@@ -16,10 +16,12 @@ class CreateGroups extends Migration
         Schema::create('groups', function (Blueprint $table) {
             $table->increments('id');
             $table->string( 'name', 80 );
-            $table->string( 'phone', 80 )->nullable();
+            $table->string( 'phone', 80 );
             $table->string( 'email', 255 )->unique();
-            $table->string( 'city', 80 )->nullable();
+            $table->string( 'city', 80 );
             $table->timestamps();
+            $table->softDeletes();
+            $table->index(['deleted_at']);
         });
     }
 

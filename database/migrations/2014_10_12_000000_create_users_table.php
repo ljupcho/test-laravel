@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string( 'first_name', 80 );
             $table->string( 'last_name', 80 );
             $table->string( 'email', 255 )->unique();
-            $table->integer('age')->nullable();
+            $table->integer('age');
             $table->integer('group_id')->unsigned()->index();
             $table->foreign( 'group_id' )->references( 'id' )->on( 'groups' );
             $table->timestamps();
@@ -34,6 +34,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        // Schema::dropIfExists('users');
+        Schema::dropIfExists('users');
     }
 }

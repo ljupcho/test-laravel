@@ -16,10 +16,12 @@ class AddPostsForUser extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer( 'user_id' )->unsigned()->index();
-            $table->string( 'title', 80 )->nullable();
-            $table->text( 'content' )->nullable();
+            $table->string( 'title', 80 );
+            $table->text( 'content' );
             $table->foreign( 'user_id' )->references( 'id' )->on( 'users' );
             $table->timestamps();
+            $table->softDeletes();
+            $table->index(['deleted_at']);
         });        
     }
 

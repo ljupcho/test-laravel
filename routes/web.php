@@ -18,7 +18,3 @@ Route::get('/', function () {
 });
 
 
-Route::get('/api/users/bulk', '\App\Http\Controllers\Controller@createUsers');
-Route::get('/api/getUsers', '\App\Http\Controllers\Controller@getUsers');
-Route::get('/api/getUsersWithJoin', '\App\Http\Controllers\Controller@getUsersWithJoin');
-Route::get('/api/groups/bulk', '\App\Http\Controllers\Controller@createGroups');

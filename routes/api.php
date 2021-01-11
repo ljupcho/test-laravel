@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/users/bulk', '\App\Http\Controllers\Controller@createUsers');
+Route::get('/getUsers', '\App\Http\Controllers\Controller@getUsers');
+Route::get('/getUsersWithJoin', '\App\Http\Controllers\Controller@getUsersWithJoin');
+Route::get('/groups/bulk', '\App\Http\Controllers\Controller@createGroups');
